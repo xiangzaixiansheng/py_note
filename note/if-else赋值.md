@@ -53,7 +53,7 @@ False None 0 "" () [] {}
 
 #### 2.1、if-else语句
 
-```
+```python
 if name.endswith('Gumby'): 
  print('Hello, Mr. Gumby') 
 else: 

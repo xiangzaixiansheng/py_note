@@ -18,10 +18,10 @@ Exception: hyperdrive overload
 一网打击
 
 ```python
-		try:
-        # 代码
-    except Exception as e:
-        print(e)
+try:
+  # 代码
+except Exception as e:
+  print(e)
 ```
 
 
