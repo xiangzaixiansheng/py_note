@@ -207,3 +207,47 @@ dict_values([1, 2, 3, 1])
 
 
 
+#### 1.5、合并两个字点
+
+**使用两次update方法向字典中添加元素**
+
+```python
+d1 = {'name': 'revotu', 'age': 99}
+d2 = {'age': 24, 'sex': 'male'}
+ 
+d = {}
+d.update(d1) 
+d.update(d2)
+print(d)
+ 
+#输出：
+{'name': 'revotu', 'age': 24, 'sex': 'male'}
+```
+
+**字典构造器**
+
+```python
+d1 = {'name': 'revotu', 'age': 99}
+d2 = {'age': 24, 'sex': 'male'}
+d1 = {'name': 'revotu', 'age': 99}
+d2 = {'age': 24, 'sex': 'male'}
+d = dict(d1)             
+d.update(d2)
+print(d)
+ 
+#输出：
+{'name': 'revotu', 'age': 24, 'sex': 'male'}
+```
+
+在Python3.5+中，可以使用一种全新的字典合并方式
+
+```python
+d1 = {'name': 'revotu', 'age': 99}
+d2 = {'age': 24, 'sex': 'male'}
+d = {**d1, **d2}        
+print(d)     
+ 
+#输出：
+{'name': 'revotu', 'age': 24, 'sex': 'male'} 
+```
+

@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 def command(cmd_str, need_result=False):
     '''
@@ -46,3 +47,34 @@ def read_line(filepath, line_num):
         return command(read_line_cmd, True)
     else:
         return ''
+
+def run_command_by_subprocess(run_cmd):
+    # run_cmd = run_cmd.split(" ")
+    print(run_cmd)
+    popen = subprocess.Popen(run_cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    run_result = popen.stdout.readlines()
+    
+    popen.wait()
+   
+    return run_result
+
+# 实时输出结果
+def run_command_by_subprocess_real_time(run_cmd):
+    #run_cmd = run_cmd.split(" ")
+    p = subprocess.Popen(run_cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+
+    for line in iter(p.stdout.readline, b''):
+        print(line.decode('gbk'))
+    p.stdout.close()
+    return ''
+
+if __name__ == "__main__":
+    
+    print(run_command_by_subprocess("ls -ll"))
+    # 实施输出
+    run_command_by_subprocess_real_time("ping www.baidu.com")
+
+    # 输出内容到屏幕
+    ret = os.system("ls -ll")
+    print(ret)
+
